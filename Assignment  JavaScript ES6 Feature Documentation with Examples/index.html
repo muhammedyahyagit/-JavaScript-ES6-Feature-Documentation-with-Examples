@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Features Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            background-color: #0078d7;
+            color: #fff;
+            padding: 1rem;
+            font-size: 1.8rem;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 15px;
+            max-width: 1200px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #0078d7;
+            font-size: 1.5rem;
+        }
+
+        pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 3px solid #0078d7;
+            color: #333;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 0.9em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        code {
+            color: green;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.5rem;
+                padding: 0.8rem;
+            }
+
+            section {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            pre {
+                font-size: 0.8em;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 0.8rem;
+                padding: 0.5rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            section {
+                margin: 5px;
+                padding: 8px;
+            }
+
+            pre {
+                font-size: 0.7em;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        ES6 Features Documentation with Examples
+    </header>
+
+    <!-- Section 1 Closure Start -->
+
+    <section>
+        <h2>1. Closures</h2>
+        <p>A closure gives you access to an outer function's scope from an inner function.</p>
+        <pre><code>
+function outer() {
+let naam = "Yahya"; // Outer function ka variable
+function inner() { 
+   console.log(naam); // Outer ke variable ko access kar raha hai
+}
+   return inner; // Inner function return ho raha hai
+}
+              
+const closureFunction = outer(); // Outer ko call kiya, jo inner return karta hai
+closureFunction(); // "Yahya" print hoga, kyun ki inner ke paas naam ki value preserved hai
+        </code></pre>
+    </section>
+
+    <!-- Section 1 Closure End-->
+
+    <!-- Section 2 Destructuring Start -->
+
+    <section>
+        <h2>2. Destructuring</h2>
+        <p>Destructuring allows you to unpack values from arrays or properties from objects.</p>
+        <pre><code>
+// Array Destructuring
+const [a, b] = [1, 2];
+console.log(a, b); // Output: 1, 2
+
+// Object Destructuring
+const person = { name: "Alice", age: 25 };
+const { name, age } = person;
+console.log(name, age); // Output: Alice, 25
+        </code></pre>
+    </section>
+
+    <!-- Section 2 Destructuring End -->
+
+    <!-- Section 3 Default Parameters Start -->
+
+    <section>
+        <h2>3. Default Parameters</h2>
+        <p>Default function parameters allow you to set initial values for function arguments.</p>
+        <pre><code>
+function greet(name = "Guest") {
+    console.log(`Hello, ${name}`);
+}
+
+greet(); // Output: Hello, Guest
+greet("Alice"); // Output: Hello, Alice
+        </code></pre>
+    </section>
+
+    <!-- Section 3 Default Parameters End -->
+
+    <!-- Section 4 Rest Parameter Start -->
+
+    <section>
+        <h2>4. Rest Parameter</h2>
+        <p>The rest parameter collects all remaining elements into an array.</p>
+        <pre><code>
+function sum(...nums) {
+   console.log(nums); // Array of all arguments
+}
+              
+ sum(1, 2, 3); // Output: [1, 2, 3]
+              
+        </code></pre>
+    </section>
+
+    <!-- Section 4 Rest Parameter End -->
+
+    <!-- Section 5 Spread Operator Start -->
+
+    <section>
+        <h2>5. Spread Operator</h2>
+        <p>The spread operator allows you to expand elements of an array or object.</p>
+        <pre><code>
+// Spread with Arrays
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5];
+console.log(arr2); // Output: [1, 2, 3, 4, 5]
+
+// Spread with Objects
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1, c: 3 };
+console.log(obj2); // Output: { a: 1, b: 2, c: 3 }
+        </code></pre>
+    </section>
+
+    <!-- Section 5 Spread Operator End -->
+
+    <!-- Section 6 Enhanced Object Literals Start -->
+
+    <section>
+        <h2>6. Enhanced Object Literals</h2>
+        <p>Enhanced object literals make it easier to write object properties and methods.</p>
+        <pre><code>
+const name = "Alice";
+const age = 25;
+
+const person = {
+    name, // Property shorthand
+    age,
+    greet() { // Method shorthand
+        console.log(`Hello, I am ${this.name}`);
+    }
+};
+
+person.greet(); // Output: Hello, I am Alice
+        </code></pre>
+    </section>
+
+    <!-- Section 6 Enhanced Object Literals End -->
+
+    <!-- Section 7 Property Shorthand Start -->
+
+
+    <section>
+        <h2>7. Property Shorthand</h2>
+        <p>Property shorthand allows you to shorten syntax when property names and variables match.</p>
+        <pre><code>
+const name = "Bob";
+const age = 30;
+
+const user = { name, age };
+console.log(user); // Output: { name: "Bob", age: 30 }
+        </code></pre>
+    </section>
+
+    <!-- Section 7 Property Shorthand End -->
+
+    <!-- Section 8 Method Shorthand Start -->
+
+
+    <section>
+        <h2>8. Method Shorthand</h2>
+        <p>Method shorthand makes defining functions inside objects concise.</p>
+        <pre><code>
+const car = {
+    start() {
+        console.log("Car started!");
+    },
+    stop() {
+        console.log("Car stopped!");
+    }
+};
+
+car.start(); // Output: Car started!
+        </code></pre>
+    </section>
+
+    <!-- Section 8 Method Shorthand End -->
+
+    <!-- Section 9 Computed Property Names Start -->
+
+    <section>
+        <h2>9. Computed Property Names</h2>
+        <p>Computed property names allow dynamic property keys in objects.</p>
+        <pre><code>
+const propName = "dynamicKey";
+
+const obj = {
+    [propName]: "Hello, World!"
+};
+
+console.log(obj.dynamicKey); // Output: Hello, World!
+        </code></pre>
+    </section>
+
+    <!-- Section 9 Computed Property Names End -->
+
+</body>
+
+</html>
